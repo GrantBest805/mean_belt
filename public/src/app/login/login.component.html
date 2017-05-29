@@ -1,0 +1,16 @@
+<h2>Q&A</h2>
+<hr>
+<form (submit)="login(formData)" #formData="ngForm">
+  <label for="name">
+    Enter Name continue: <input required 
+    minlength="4" 
+    maxlength="24"
+    type="text"
+    name="name" 
+    ngModel>
+  </label>
+  <!--<div [hidden]="name.valid || name.pristine">
+        <p>Name is required</p>
+    </div>-->
+  <input type="submit" value="Login">
+</form>

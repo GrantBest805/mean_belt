@@ -1,0 +1,21 @@
+
+<a href="/logout">Logout  |</a>
+<a [routerLink]="['/dashboard']">Home</a>
+
+<h2>New Question</h2>
+<form (submit)="createQuestion(formData)" #formData="ngForm">
+  <label for="question">
+    Question:
+    <textarea  type="text" name="question" required minlength="10" [(ngModel)]="question.name" #name='ngModel'></textarea> 
+    <div [hidden]="name.valid || name.pristine">
+			<p>Question is required:</p>
+		</div>
+  </label>
+   <label for="description">
+    Description:
+    (optional)
+    <textarea  type="text" name="description" ngModel></textarea> 
+  </label>
+  <input type="submit" value="Submit">
+  <button (click)="clear(formData)">Cancel</button>
+</form>

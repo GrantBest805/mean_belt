@@ -1,0 +1,21 @@
+
+
+<a href="/logout">Logout  |</a>
+<a [routerLink]="['/dashboard', question_id]">Go Back to Question  |</a>
+<h3 *ngFor="let q of question">{{q.question}}</h3>
+<form (submit)="createAnswer(formData, question_id)" #formData="ngForm">
+  <label for="answer">
+    Your Answer:
+    <textarea  type="text" name="answer" required minlength="5" [(ngModel)]="answer.name" #name='ngModel'></textarea>
+  </label>
+  <div [hidden]="name.valid || name.pristine">
+		<p>Answer is required:</p>
+	</div>
+   <label for="description">
+    Details:
+    (optional)
+    <textarea  type="text" name="description" ngModel></textarea> 
+  </label>
+  <input type="submit" value="Submit">
+  <button (click)="clear(formData)">Cancel</button>
+</form>
